@@ -1,5 +1,6 @@
 package com.tomboja.bootrest.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,12 +10,13 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * @ProjectName: IntelliJ IDEA
+ * @ProjectName: Spring Rest api
  * @Author: tdessalegn
  * @Date: 11/27/21
  */
 
-@Entity(name="sessions")
+@Entity(name = "sessions")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,7 +30,7 @@ public class Session {
     private String session_description;
     private Integer session_length;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "session_speakers",
             joinColumns = @JoinColumn(name = "session_id"),
             inverseJoinColumns = @JoinColumn(name = "speaker_id"))

@@ -3,10 +3,8 @@ package com.tomboja.bootrest.controller;
 import com.tomboja.bootrest.domain.Course;
 import com.tomboja.bootrest.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +34,7 @@ public class CourseController {
     }
 
     @GetMapping("/getAllCourses")
-    public  List<Course> courseList() {
+    public List<Course> courseList() {
         return courseService.getCourseList();
     }
 

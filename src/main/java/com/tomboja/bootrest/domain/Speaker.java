@@ -1,5 +1,6 @@
 package com.tomboja.bootrest.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * @ProjectName: IntelliJ IDEA
+ * @ProjectName: Spring Rest api
  * @Author: tdessalegn
  * @Date: 11/27/21
  */
@@ -36,5 +37,6 @@ public class Speaker {
     private byte[] speaker_photo;
 
     @ManyToMany(mappedBy = "speakers")
+    @JsonIgnore
     private List<Session> sessions;
 }

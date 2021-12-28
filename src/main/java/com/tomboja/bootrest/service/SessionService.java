@@ -6,14 +6,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ProjectName: IntelliJ IDEA
+ * @ProjectName: Spring Rest api
  * @Author: tdessalegn
  * @Date: 11/27/21
  */
 
-@Service
 public interface SessionService {
-    public List<Session> list();
-    public  Session get(Long id);
-    public Session create(final Session session);
+    public List<Session> listSessions();
+
+    public Session getSession(Long id);
+
+    public Session saveSession(final Session session);
+
+    public boolean deleteSession(Long id);
+
+    public Session updateSession(Long id, Session session);
 }

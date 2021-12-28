@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ProjectName: IntelliJ IDEA
+ * @ProjectName: Spring Rest api
  * @Author: tdessalegn
  * @Date: 11/27/21
  */
@@ -15,6 +15,7 @@ import java.util.List;
 @Repository
 public class CourseRepository {
     private List<Course> courseList = new ArrayList<>();
+
     public List<Course> getCourseList() {
         if (courseList.size() == 0) {
             Course c = new Course(1, "CS50", "WAA");

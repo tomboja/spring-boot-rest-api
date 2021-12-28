@@ -3,7 +3,7 @@ package com.tomboja.bootrest.domain;
 import lombok.*;
 
 /**
- * @ProjectName: IntelliJ IDEA
+ * @ProjectName: Spring Rest api
  * @Author: tdessalegn
  * @Date: 11/27/21
  */

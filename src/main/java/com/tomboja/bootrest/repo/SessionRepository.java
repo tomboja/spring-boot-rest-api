@@ -4,7 +4,7 @@ import com.tomboja.bootrest.domain.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @ProjectName: IntelliJ IDEA
+ * @ProjectName: Spring Rest api
  * @Author: tdessalegn
  * @Date: 11/27/21
  */
