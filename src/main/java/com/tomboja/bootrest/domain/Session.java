@@ -25,10 +25,17 @@ public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long session_id;
-    private String session_name;
-    private String session_description;
-    private Integer session_length;
+    @Column(name = "session_id")
+    private Long sessionId;
+
+    @Column(name = "session_name")
+    private String sessionName;
+
+    @Column(name = "session_description")
+    private String sessionDescription;
+
+    @Column(name = "session_length")
+    private Integer sessionLength;
 
     @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "session_speakers",
