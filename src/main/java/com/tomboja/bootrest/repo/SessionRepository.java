@@ -1,6 +1,9 @@
 package com.tomboja.bootrest.repo;
 
 import com.tomboja.bootrest.domain.Session;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,7 +15,7 @@ import java.util.List;
  * @Date: 11/27/21
  */
 
-public interface SessionRepository extends JpaRepository<Session, Long> {
+public interface SessionRepository extends JpaRepository<Session, Long>, CustomSessionRepository {
 
     //@Query("select s from sessions s where s.sessionName like concat('%', ?1, '%')")
     public List<Session> findBySessionNameContains(String sessionName);
@@ -39,6 +42,17 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
     public List<Session> findBySessionNameStartingWith(String str);
     public List<Session> findBySessionNameStartsWith(String str);
     public List<Session> findBySessionNameIsStartingWith(String str);
+
+
+    /**
+     * PAGING AND SORTING with
+     * Iterable<T> findAll(Sort sort) and
+     * Page<T> findAll(Pageable pageable) or combination of the two
+     */
+    // Note that the return type is Page and parameter also a pageable
+    @Query("select s from sessions s where s.sessionName like %:name")
+    Page<Session> getSessionWithName(@Param("name") String name,
+                                     Pageable pageable);
 
 
 }
